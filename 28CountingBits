@@ -1,0 +1,11 @@
+class Solution:
+    def countBits(self, num: int) -> List[int]:
+        binaries = []
+        binaries.append(0)
+        for n in range(1, num+1):
+            b = bin(n).replace("0b", "")
+            if(int(b)%10 == 0):
+                binaries.append(binaries[int(n/2)])
+            else:
+                binaries.append(binaries[int(n/2)] +1)
+        return binaries
